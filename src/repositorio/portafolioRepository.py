@@ -6,13 +6,13 @@ class PortafolioRepository:
         connection = DatabaseConnection().connect()
         cursor = connection.cursor()
         query = """
-            INSERT INTO portafolio (dni, descripcion, saldo_actual) 
+            INSERT INTO portafolios (cuil, descripcion, saldo_actual) 
             VALUES (%s, %s, 1000000)
         """
 
         try:
             cursor.execute(query, (
-                nuevo_portafolio.dni, nuevo_portafolio.descripcion
+                nuevo_portafolio.cuil, nuevo_portafolio.descripcion
             ))
             connection.commit()
             return True

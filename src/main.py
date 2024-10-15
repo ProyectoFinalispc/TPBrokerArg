@@ -19,8 +19,8 @@ def main():
         choice = input("Selecciona una opción: ")
 
         if choice == "1":
-            inversorAux.dni = input("Ingrese el dni a consultar: ")
-            inversorAux = inversor_service.consultar_inversor(inversorAux.dni)
+            inversorAux.cuil = input("Ingrese el cuil a consultar: ")
+            inversorAux = inversor_service.consultar_inversor(inversorAux.cuil)
 
             if inversorAux:
                 print(inversorAux)
@@ -30,7 +30,7 @@ def main():
         elif choice == "2":
             inversor_nuevo = Inversor()
 
-            inversor_nuevo.dni = input("Ingrese su dni: ")
+            inversor_nuevo.cuil = input("Ingrese su cuil: ")
             inversor_nuevo.nombre = input("Ingrese su nombre: ")
             inversor_nuevo.apellido = input("Ingrese su apellido: ")
             inversor_nuevo.email = input("Ingrese su email: ")
@@ -45,7 +45,7 @@ def main():
 
                 portafolio_nuevo = Portafolio()
                 portafolio_nuevo.descripcion = input("Ingrese una descripcion para su portafolio: ")
-                portafolio_nuevo.dni = inversor_nuevo.dni
+                portafolio_nuevo.cuil = inversor_nuevo.cuil
 
                 portafolio_creado = portafolio_service.crear_portafolio_serv(portafolio_nuevo)
 

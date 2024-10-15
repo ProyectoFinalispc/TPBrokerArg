@@ -1,5 +1,8 @@
 import mysql.connector
 from mysql.connector import Error
+import os
+
+password = os.getenv('clavesql')
 
 class DatabaseConnection:
     _instance = None
@@ -15,9 +18,9 @@ class DatabaseConnection:
             try:
                 self.connection = mysql.connector.connect(
                     host='localhost',
-                    database='arg_broker',
+                    database='brokerarg',
                     user='root',
-                    password='%clavesql%',
+                    password= password,
                     port = '3307'
                 )
             except Error as e:
